@@ -9,7 +9,7 @@ import pytesseract
 from PIL import Image
 import os 
 # Load custom spaCy model
-nlp = spacy.load("outputtrf_v3/outputtrf_v3/model-best")
+nlp = spacy.load("model-best")
 import os
 # Pydantic model for input validation
 class ResumeText(BaseModel):
