@@ -11,9 +11,6 @@ import os
 # Load custom spaCy model
 nlp = spacy.load("outputtrf_v3/outputtrf_v3/model-best")
 import os
-# ... (rest of your app.py code)
-port = int(os.getenv("PORT", 8080))
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", f"--port", "{port}"]
 # Pydantic model for input validation
 class ResumeText(BaseModel):
     text: str
@@ -125,6 +122,8 @@ def extract_info_with_spacy_regex(text):
     return extracted_info
 
 # FastAPI app
+port = int(os.getenv("PORT", 8080))
+
 app = FastAPI(title="Resume Parser API")
 
 @app.post("/parse_resume", response_model=dict)
